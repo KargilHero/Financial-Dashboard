@@ -1,0 +1,23 @@
+<nav>
+    <div class="logo">
+        <a href="/">
+          <img src="/images/logo.png" alt="Logo">
+        </a>
+    </div>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/converter">Currency Converter</a></li>
+        <li><a href="/stocks">Stock Market</a></li>
+        <li><a href="/news">Financial News</a></li>
+        <li><a href="/todo">To-Do List</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <% if (username) { %>
+            <li style="color: blanchedalmond;">Hello, <%= username %></li>
+            <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        <% } %>
+    </ul>
+</nav>

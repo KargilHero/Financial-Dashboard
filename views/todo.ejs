@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/css/todo.css"> <!-- Ensure you have the correct path to the CSS file -->
+</head>
+<body>
+    <!-- Include the Navbar -->
+    <%- include('navbar') %>
+
+    <div class="container">
+        <h2>Your To-Do List</h2>
+        
+        
+
+        <!-- Form to add new task -->
+        <form action="/todo" method="POST">
+            <input type="text" name="description" placeholder="Enter new task" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+
+        <!-- Display tasks if available -->
+        <ul id="taskList">
+            <% if (tasks.length > 0) { %>
+                <% tasks.forEach(task => { %>
+                    <li class="<%= task.completed ? 'completed' : '' %>">
+                        <span><%= task.description %></span>
+                        
+                        <!-- Buttons for task actions -->
+                        <div class="actions">
+                            <% if (!task.completed) { %>
+                                <form action="/todo/complete/<%= task.id %>" method="POST" style="display: inline;">
+                                    <button type="submit" class="complete-btn">Complete</button>
+                                </form>
+                            <% } %>
+                            <form action="/todo/delete/<%= task.id %>" method="POST" style="display: inline;">
+                                <button type="submit" class="delete-btn">Remove</button>
+                            </form>
+                        </div>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <p>No tasks found. Add some!</p>
+            <% } %>
+        </ul>
+    </div>
+
+    <footer>
+        Copyright &copy; All rights reserved 2024-2025
+    </footer>
+</body>
+</html>

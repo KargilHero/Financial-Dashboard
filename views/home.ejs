@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  <!-- Main container to ensure footer stays at the bottom -->
+  <div class="main-content">
+    <!-- Include the Navbar -->
+    <%- include('navbar') %>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to the Financial Dashboard</h1>
+        <p>Your one-stop destination for all financial tools, updates, and insights.</p>
+    </div>
+
+    <!-- Currency Converter Section -->
+    <section class="feature-section">
+        <div class="feature-block">
+            <h2>Currency Converter</h2>
+            <p>Convert currencies easily with our up-to-date exchange rates.</p>
+            <a href="/converter" class="btn">Try Now</a>
+        </div>
+    </section>
+
+    <!-- Stock Market Section -->
+    <section class="stocks-section">
+        <h2>Live Stock Market Data</h2>
+        <div class="stocks-grid" id="stocksGrid">
+            <!-- Stocks will be dynamically inserted here -->
+        </div>
+        <a href="/stocks" class="btn">View All Stocks</a>
+    </section>
+
+    <!-- Latest Financial News Section -->
+    <section class="news-section">
+        <h2>Latest Financial News</h2>
+        <div class="news-grid" id="newsGrid">
+            <!-- News items will be dynamically added here -->
+        </div>
+        <a href="/news" class="btn">Read More News</a>
+    </section>
+
+    <!-- To-Do List Section -->
+    <section class="todo-section">
+        <h2>Personal Finance To-Do List</h2>
+        <ul class="todo-list" style="list-style-type: none">
+            <li>Review monthly budget</li>
+            <li>Invest in stock market</li>
+            <li>Track expenses for the week</li>
+        </ul>
+        <a href="/todo" class="btn">Manage Your To-Do List</a>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+      <div class="copyright">
+          Copyright &copy; 2024-2025 All rights reserved
+      </div>
+  </footer>
+
+  <script src="js/home.js"></script>
+</body>
+</html>

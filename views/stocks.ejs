@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prices</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+<script>
+// Function to create the stock chart with interactive features
+function createStockChart(stockData, symbol) {
+    const labels = stockData.map(data => data.datetime).reverse(); // Time labels
+    const closingPrices = stockData.map(data => data.close).reverse(); // Closing prices
+
+    // Calculate percentage change for tooltips
+    const percentageChanges = closingPrices.map((price, index, prices) => {
+        if (index === 0) return 0;
+        return (((price - prices[index - 1]) / prices[index - 1]) * 100).toFixed(2);
+    });
+
+    // Remove previous chart if it exists
+    if (stockChart !== null) {
+        stockChart.destroy();
+    }
+
+    // Get the canvas element for the graph
+    const ctx = document.getElementById('stockChart').getContext('2d');
+
+    // Create a new chart with cool interactive features
+    stockChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels, // X-axis labels (time)
+            datasets: [{
+                label: `Closing Prices for ${symbol.toUpperCase()}`,
+                data: closingPrices, // Y-axis data (stock prices)
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: (context) => {
+                    const ctx = context.chart.ctx;
+                    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+                    gradient.addColorStop(0, 'rgba(0, 255, 0, 0.4)'); // Green at the top
+                    gradient.addColorStop(1, 'rgba(255, 0, 0, 0.4)'); // Red at the bottom
+                    return gradient;
+                },
+                fill: true,
+                pointRadius: 5, // Make points bigger for easier hover
+                pointHoverRadius: 10, // Increase hover radius for better interaction
+                tension: 0.4,
+                borderWidth: 2,
+                hoverBorderColor: 'rgb(255, 255, 255)', // White border on hover
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            const price = tooltipItem.raw;
+                            const index = tooltipItem.dataIndex;
+                            const percentageChange = percentageChanges[index];
+                            return `Price: $${price} (${percentageChange}% change)`;
+                        }
+                    }
+                },
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'x', // Pan in the x direction
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true, // Enable zooming using mouse wheel
+                        },
+                        pinch: {
+                            enabled: true // Enable zooming on mobile pinch gestures
+                        },
+                        mode: 'x', // Zoom in the x direction
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Time'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Price (USD)'
+                    },
+                    beginAtZero: false
+                }
+            },
+            animation: {
+                duration: 2000, // Animation duration in ms
+                easing: 'easeInOutBounce', // "Crazy" bounce effect for animations
+                loop: false // Animation runs once on load
+            },
+            hover: {
+                mode: 'nearest', // Hover effect on nearest point
+                intersect: true,
+                animationDuration: 400, // Smooth animation on hover
+            }
+        }
+    });
+}
+</script>
+
+    
+</head>
+<body>
+
+     <!-- Include the Navbar -->
+     <%- include('navbar') %>
+
+    <div class="stock-page">
+        <h2>Search Stock Prices</h2>
+        <form id="stock-search-form">
+            <input type="text" id="stock-search-input" placeholder="Enter stock symbol (e.g., AAPL)" autocomplete="off" required>
+            <button type="submit">Search</button>
+        </form>
+        
+        <ul class="suggestions" id="suggestions-list"></ul> <!-- Suggestions List -->
+
+        <div class="stock-price-container">
+            <!-- Stock price information will be displayed here -->
+        </div>
+
+        <!-- Canvas element for displaying stock graph -->
+        <div class="stock-graph-container">
+            <canvas id="stockChart"></canvas>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; All rights reserved 2024-2025</p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

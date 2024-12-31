@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial News</title>
+    <link rel="stylesheet" href="/css/news.css">
+</head>
+<body>
+    <!-- Include the Navbar -->
+  <%- include('navbar') %>
+  
+    <div class="container">
+        <h2>Latest Financial News</h2>
+        <div id="news-container"></div>
+    </div>
+    <button id="scrollToTop" class="scroll-to-top hidden">↑</button>
+
+    <footer>
+        Copyright &copy; 2024-2025
+    </footer>
+
+    <script>
+        // Toggle additional info about team members
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('click', function() {
+                const info = this.querySelector('.member-info');
+                info.classList.toggle('hidden');
+            });
+        });
+
+        // Show scroll-to-top button when scrolling down
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.classList.remove('hidden');
+            } else {
+                scrollToTopButton.classList.add('hidden');
+            }
+        });
+
+        // Scroll to top functionality
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll effect
+            });
+        });
+    </script>
+    <script src="js/news.js"></script>
+</body>
+</html>

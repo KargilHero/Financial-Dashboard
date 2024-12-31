@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="/css/about.css">
+</head>
+<body>
+    <!-- Include the Navbar -->
+  <%- include('navbar') %>
+
+    <div class="container">
+        <h2>About Us</h2>
+        <p>We provide real-time financial data and tools to help you stay informed.</p>
+        
+        <section>
+            <h3>Our Mission</h3>
+            <p>To empower individuals with accessible financial information and tools that promote informed decision-making.</p>
+        </section>
+        
+        <section>
+            <h3>Our Vision</h3>
+            <p>To be the leading platform for financial knowledge, helping users navigate the complexities of finance.</p>
+        </section>
+        
+        <section>
+            <h3>Meet Our Team</h3>
+            <ul class="team-list">
+                <li class="team-member"><strong>DEV SHARMA</strong>
+                    <div class="member-info hidden">
+                        <p>Jane is the CEO and founder with over 10 years of experience in finance.</p>
+                    </div>
+                </li>
+                <li class="team-member"><strong>SUNDAR PICHAI</strong>
+                    <div class="member-info hidden">
+                        <p>John is the Chief Financial Analyst specializing in market trends.</p>
+                    </div>
+                </li>
+                <li class="team-member"><strong>MARK ZUCKERBERG</strong>
+                    <div class="member-info hidden">
+                        <p>Emily leads our marketing efforts with a passion for digital outreach.</p>
+                    </div>
+                </li>
+                <li class="team-member"><strong>SAM ALTMAN</strong>
+                    <div class="member-info hidden">
+                        <p>Michael is our Lead Developer, ensuring our platform runs smoothly.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+        <section>
+            <h3>Our Journey</h3>
+            <div class="journey-container">
+                <div class="journey-item">
+                    <div class="year">2024</div>
+                    <div class="event">
+                        <h4>Launched our first financial tool</h4>
+                        <p>Our mission started with the launch of a simple yet powerful financial tool aimed at helping users manage their finances better.</p>
+                    </div>
+                </div>
+                <div class="journey-item">
+                    <div class="year">2025</div>
+                    <div class="event">
+                        <h4>Expanded our services</h4>
+                        <p>We introduced real-time data to keep our users updated with the latest financial trends and information.</p>
+                    </div>
+                </div>
+                <div class="journey-item">
+                    <div class="year">2026</div>
+                    <div class="event">
+                        <h4>Reached our first 10,000 users</h4>
+                        <p>A significant milestone, we celebrated a growing community passionate about financial literacy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+    
+    <button id="scrollToTop" class="scroll-to-top hidden">↑</button>
+
+    <footer>
+        Copyright &copy; 2024-2025
+    </footer>
+
+    <script>
+        // Toggle additional info about team members
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('click', function() {
+                const info = this.querySelector('.member-info');
+                info.classList.toggle('hidden');
+            });
+        });
+
+        // Show scroll-to-top button when scrolling down
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.classList.remove('hidden');
+            } else {
+                scrollToTopButton.classList.add('hidden');
+            }
+        });
+
+        // Scroll to top functionality
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll effect
+            });
+        });
+    </script>
+</body>
+</html>
