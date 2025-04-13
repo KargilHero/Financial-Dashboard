@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Estimator</title>
+    <link rel="stylesheet" href="/css/tax.css">
+    <script defer src="/js/tax.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('navbar') %>
+    <div class="containers">
+        <form action="/tax" method="POST">
+            <label>Total Annual Income:</label>
+            <input type="number" name="income" placeholder="Enter your income" value="<%= taxData.income || '' %>">
+        
+            <label>Tax Deductions:</label>
+            <input type="number" name="deductions" placeholder="Enter deductions" value="<%= taxData.deductions || '' %>">
+        
+            <label>Tax Slab:</label>
+            <select name="taxSlab">
+                <option value="5" <%= taxData.tax_slab == 5 ? 'selected' : '' %>>5% (Income below ₹5L)</option>
+                <option value="10" <%= taxData.tax_slab == 10 ? 'selected' : '' %>>10% (₹5L - ₹10L)</option>
+                <option value="20" <%= taxData.tax_slab == 20 ? 'selected' : '' %>>20% (₹10L - ₹20L)</option>
+                <option value="30" <%= taxData.tax_slab == 30 ? 'selected' : '' %>>30% (Above ₹20L)</option>
+            </select>
+        
+            <p>Estimated Tax Payable: ₹<span id="taxAmount"><%= taxData.tax_amount || 0 %></span></p>
+        
+            <button type="submit">Calculate & Save</button>
+        </form>
+        
+    </div>
+</body>
+</html>

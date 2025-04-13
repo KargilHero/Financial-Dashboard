@@ -1,0 +1,381 @@
+/* portfolio.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ECF0F1;
+    color: #34495E;
+    line-height: 1.6;
+}
+
+.containers {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+   
+}
+
+h1 {
+    color: #2C3E50;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #2C3E50;
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ECF0F1;
+}
+
+.section {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #27AE60;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.section h3 {
+    color: #2C3E50;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.section p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #ECF0F1;
+}
+
+.section p:last-child {
+    border-bottom: none;
+}
+
+.section p strong {
+    color: #2C3E50;
+}
+
+button {
+    background-color: #27AE60;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    width: 30%;
+    margin-left: 32%;
+}
+
+button:hover {
+    background-color: #219653;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .containers {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    h1 {
+        font-size: 26px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    .section {
+        padding: 15px;
+    }
+}
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #f1f5f9;
+    --dark-color: #2C3E50;
+    --text-color: #f8fafc;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+.modern-nav {
+    background: var(--dark-color);
+    box-shadow: var(--box-shadow);
+    
+
+}
+
+.container {
+    
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.logo a{
+    text-decoration: none;
+}
+.logo {
+    font-family: "Marcellus", serif;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+      font-weight: 500;
+  }
+  
+  .green-accent {
+    color: #27AE60;
+  }
+
+.logo :hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+
+.nav-menu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Dropdown styling */
+.dropdown-icon {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    transition: transform var(--transition-speed);
+}
+
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: var(--dark-color);
+    list-style: none;
+    padding: 0.5rem 0;
+    
+    left: 0;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    z-index: 1001;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 0.75rem 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    transition: all var(--transition-speed);
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* User-related styling */
+.user-greeting {
+    color: #cbd5e1;
+    padding: 0.75rem 1rem;
+    margin-left: 0.5rem;
+}
+
+.auth-link {
+    background-color: var(--dark-color);
+    border-radius: 4px;
+    padding: 0.5rem 1.25rem !important;
+    font-weight: 600 !important;
+}
+
+.auth-link:hover {
+    background-color: var(--text-color) !important;
+    color: var(--dark-color) !important;
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2rem;
+    position: relative;
+    transition: all var(--transition-speed);
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 8px;
+}
+
+.nav-toggle-label span::after {
+    top: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 992px) {
+    .nav-wrapper {
+        flex-wrap: wrap;
+    }
+    
+    .nav-toggle-label {
+        display: block;
+        order: 1;
+    }
+    
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0;
+        order: 3;
+    }
+    
+    .nav-toggle:checked ~ .nav-menu {
+        display: flex;
+    }
+    
+    .nav-menu li a {
+        padding: 1rem;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: none;
+        width: 100%;
+        padding-left: 1rem;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        animation: none;
+    }
+    
+    .dropdown-menu li a:hover {
+        transform: none;
+    }
+    
+    .nav-toggle:checked ~ .nav-toggle-label span {
+        background: transparent;
+    }
+    
+    .nav-toggle:checked ~ .nav-toggle-label span::before {
+        transform: rotate(45deg);
+        bottom: 0;
+    }
+    
+    .nav-toggle:checked ~ .nav-toggle-label span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+}
+
+.auth-container {
+    background-color: #ffffff;
+    width: 100%;
+    margin-left: 35%;
+    max-width: 400px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 100px; /* to avoid overlap with navbar */
+}
+
+
+.csv-download {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.csv-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.csv-btn:hover {
+    background-color: #218838;
+}

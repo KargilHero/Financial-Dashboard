@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/css/debt.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<%- include('navbar') %>
+<div class="debt-container">
+    <h2>Debt Payoff Planner</h2>
+
+    <form action="/debt-planner" method="POST">
+        <label>Debt Name:</label>
+        <input type="text" name="debt_name" required>
+
+        <label>Amount (₹):</label>
+        <input type="number" name="amount" required>
+
+        <label>Interest Rate (%):</label>
+        <input type="number" name="interest_rate" step="0.01" required>
+
+        <label>Minimum Monthly Payment (₹):</label>
+        <input type="number" name="min_payment" required>
+
+        <label>Payoff Method:</label>
+        <select name="method">
+            <option value="Snowball">Snowball (Lowest Balance First)</option>
+            <option value="Avalanche">Avalanche (Highest Interest First)</option>
+        </select>
+
+        <button type="submit">Add Debt</button>
+    </form>
+
+    <h3>Existing Debts</h3>
+<div class="box">
+    
+    <table>
+        <tr>
+            <th>Debt Name</th>
+            <th>Amount (₹)</th>
+            <th>Interest Rate (%)</th>
+            <th>Minimum Payment (₹)</th>
+            <th>Method</th>
+            <th>Action</th>
+        </tr>
+        <% debts.forEach(debt => { %>
+            <tr>
+                <td><%= debt.debt_name %></td>
+                <td><%= debt.amount %></td>
+                <td><%= debt.interest_rate %></td>
+                <td><%= debt.min_payment %></td>
+                <td><%= debt.method %></td>
+                <td>
+                    <form action="/debt-planner/delete/<%= debt.id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+  </div>
+</div>

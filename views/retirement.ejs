@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/css/retirement.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<%- include('navbar') %>
+<div class="retirement-container">
+    <h2>Retirement Planning Tool</h2>
+    <form action="/retirement" method="POST">
+        <label>Current Age:</label>
+        <input type="number" name="currentAge" value="<%= retirementData.current_age || '' %>">
+
+        <label>Retirement Age:</label>
+        <input type="number" name="retirementAge" value="<%= retirementData.retirement_age || '' %>">
+
+        <label>Monthly Expenses (₹):</label>
+        <input type="number" name="monthlyExpenses" value="<%= retirementData.monthly_expenses || '' %>">
+
+        <label>Current Savings (₹):</label>
+        <input type="number" name="currentSavings" value="<%= retirementData.current_savings || '' %>">
+
+        <label>Expected Annual Return (%):</label>
+        <input type="number" name="expectedReturn" value="<%= retirementData.expected_return || '' %>">
+
+        <p>Estimated Savings Needed for Retirement: ₹<span id="savingsNeeded"><%= retirementData.savings_needed || 0 %></span></p>
+
+        <button type="submit">Calculate & Save</button>
+    </form>
+</div>

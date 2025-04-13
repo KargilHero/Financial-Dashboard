@@ -72,6 +72,17 @@ async function displayStocks() {
     }
 }
 
+const slider = document.querySelector('.testimonial-slider');
+  const slides = document.querySelectorAll('.testimonial-card');
+  let currentIndex = 0;
+
+  function slideNext() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(slideNext, 4000); // Change every 4 seconds
+
 // Fetch and display stocks on page load
 window.addEventListener('load', displayStocks);
 

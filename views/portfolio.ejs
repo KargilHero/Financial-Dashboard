@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Financial Portfolio</title>
+    <link rel="stylesheet" href="/css/portfolio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the Navbar -->
+    <%- include('navbar') %>
+    <div class="containers">
+        <h1>Welcome, <%= username %> 👋</h1>
+        <h2>Your Financial Portfolio</h2>
+
+        <div class="section">
+            <h3>💰 Net Worth</h3>
+            <p><strong>Assets:</strong> ₹<%= data.netWorth.assets %></p>
+            <p><strong>Liabilities:</strong> ₹<%= data.netWorth.liabilities %></p>
+        </div>
+
+        <div class="section">
+            <h3>🏦 Loan & EMI</h3>
+            <p><strong>Loan Amount:</strong> ₹<%= data.loanEmi.amount %></p>
+            <p><strong>EMI:</strong> ₹<%= data.loanEmi.emi %></p>
+        </div>
+
+        <div class="section">
+            <h3>💵 Tax Details</h3>
+            <p><strong>Annual Income:</strong> ₹<%= data.tax.income %></p>
+            <p><strong>Estimated Tax:</strong> ₹<%= data.tax.tax_amount %></p>
+        </div>
+
+        <div class="section">
+            <h3>🛡 Retirement Plan</h3>
+            <p><strong>Current Savings:</strong> ₹<%= data.retirement.current_savings %></p>
+            <p><strong>Goal:</strong> ₹<%= data.retirement.savings_needed %></p>
+        </div>
+
+        <div class="section">
+            <h3>📉 Debt Payoff Plan</h3>
+            <p><strong>Total Debt:</strong> ₹<%= data.debt.amount %></p>
+            <p><strong>Plan:</strong>₹<%= data.debt.min_payment %> per month</p>
+        </div>
+
+        <div class="csv-download">
+            <h3>Download Your Financial Data</h3>
+            <a href="/download-csv" class="csv-btn">Download CSV</a>
+            <button onclick="window.print()" class="csv-btn">Download Report 📄</button>
+        </div>
+    </div>
+</body>
+</html>

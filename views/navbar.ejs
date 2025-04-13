@@ -1,23 +1,47 @@
-<nav>
-    <div class="logo">
-        <a href="/">
-          <img src="/images/logo.png" alt="Logo">
-        </a>
+<nav class="modern-nav">
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <a href="/">
+                    <p class="logo">Stock<span class="green-accent">Verse</span></p>
+                </a>
+            </div>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+            
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/converter">Currency Converter</a></li>
+                <li><a href="/stocks">Stock Market</a></li>
+                <li><a href="/news">Financial News</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+             
+
+        
+                <!-- Tools Dropdown -->
+                <li class="dropdown">
+                    <a href="#">Tools <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/networth">Net Worth</a></li>
+                        <li><a href="/Loan">Loan</a></li>
+                        <li><a href="/tax">Tax</a></li>
+                        <li><a href="/retirement">Retirement</a></li>
+                        <li><a href="/debt-planner">Debt Payoff Planner</a></li>
+                        <li><a href="/todo">To-Do List</a></li>
+                    </ul>
+                </li>
+        
+                <% if (username) { %>
+                    <li class="user-greeting"><a href="/portfolio">Welcome, <%= username %>!</a></li>
+                    <li><a href="/logout" class="auth-link">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/login" class="auth-link">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
     </div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/converter">Currency Converter</a></li>
-        <li><a href="/stocks">Stock Market</a></li>
-        <li><a href="/news">Financial News</a></li>
-        <li><a href="/todo">To-Do List</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <% if (username) { %>
-            <li style="color: blanchedalmond;">Hello, <%= username %></li>
-            <li><a href="/logout">Logout</a></li>
-        <% } else { %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-        <% } %>
-    </ul>
 </nav>

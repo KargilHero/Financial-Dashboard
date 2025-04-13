@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Worth Calculator</title>
+    <link rel="stylesheet" href="/css/networth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <script defer src="/js/networth.js"></script>
+</head>
+<body>
+      <!-- Include the Navbar -->
+      <nav class="modern-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="/">
+                        <p class="logo">Stock<span class="green-accent">Verse</span></p>
+                    </a>
+                </div>
+                
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <span></span>
+                </label>
+                
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/converter">Currency Converter</a></li>
+                    <li><a href="/stocks">Stock Market</a></li>
+                    <li><a href="/news">Financial News</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+            
+                    <!-- Tools Dropdown -->
+                    <li class="dropdown">
+                        <a href="#">Tools <span class="dropdown-icon">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/networth">Net Worth</a></li>
+                            <li><a href="/Loan">Loan</a></li>
+                            <li><a href="/tax">Tax</a></li>
+                            <li><a href="/retirement">Retirement</a></li>
+                            <li><a href="/debt-planner">Debt Payoff Planner</a></li>
+                            <li><a href="/todo">To-Do List</a></li>
+                        </ul>
+                    </li>
+            
+                    <% if (username) { %>
+                        <li class="user-greeting">Hello, <%= username %></li>
+                        <li><a href="/logout" class="auth-link">Logout</a></li>
+                    <% } else { %>
+                        <li><a href="/login" class="auth-link">Login</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+   <div class="con">
+    
+    <h2>Net Worth Calculator</h2>
+    <p>Welcome, <%= username %>!</p>
+
+    <label>Assets:</label>
+    <input type="number" id="assets" placeholder="Enter assets" />
+
+    <label>Liabilities:</label>
+    <input type="number" id="liabilities" placeholder="Enter liabilities" />
+
+    <button onclick="calculateNetWorth()">Calculate</button>
+
+    <p>Net Worth: <span id="netWorth">0</span></p>
+
+    <button onclick="saveNetWorth()">Save</button>
+   </div>
+</body>
+</html>

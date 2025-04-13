@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Dashboard</title>
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <style>.csv-download {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .csv-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        display: inline-block;
+        transition: background 0.3s;
+    }
+    
+    .csv-btn:hover {
+        background-color: #218838;
+    }
+    </style>
 </head>
 <body>
   <!-- Main container to ensure footer stays at the bottom -->
@@ -16,16 +39,35 @@
     <div class="hero">
         <h1>Welcome to the Financial Dashboard</h1>
         <p>Your one-stop destination for all financial tools, updates, and insights.</p>
+       <div class="link"><a href="/login" class="loo">Get Started</a></div>
     </div>
-
-    <!-- Currency Converter Section -->
-    <section class="feature-section">
-        <div class="feature-block">
-            <h2>Currency Converter</h2>
-            <p>Convert currencies easily with our up-to-date exchange rates.</p>
-            <a href="/converter" class="btn">Try Now</a>
+   
+    
+    <section class="services">
+        <div class="containers">
+          <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Tailored financial solutions to help you achieve your goals</p>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">$</div>
+              <h3>Investment Management</h3>
+              <p>Strategically designed portfolios that align with your risk tolerance and financial objectives for optimal growth.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">%</div>
+              <h3>Retirement Planning</h3>
+              <p>Comprehensive strategies to ensure financial security and maintain your lifestyle throughout retirement.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">T</div>
+              <h3>Tax Optimization</h3>
+              <p>Minimize your tax burden through strategic planning and legitimate methods to preserve more of your wealth.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
     <!-- Stock Market Section -->
     <section class="stocks-section">
@@ -33,7 +75,9 @@
         <div class="stocks-grid" id="stocksGrid">
             <!-- Stocks will be dynamically inserted here -->
         </div>
-        <a href="/stocks" class="btn">View All Stocks</a>
+        <div class="link">
+        <a href="/stocks" class="loo">View All Stocks</a>
+    </div>
     </section>
 
     <!-- Latest Financial News Section -->
@@ -42,20 +86,72 @@
         <div class="news-grid" id="newsGrid">
             <!-- News items will be dynamically added here -->
         </div>
-        <a href="/news" class="btn">Read More News</a>
+        <div class="link">
+        <a href="/news" class="loo">Read More News</a>
+    </div>
     </section>
 
-    <!-- To-Do List Section -->
-    <section class="todo-section">
-        <h2>Personal Finance To-Do List</h2>
-        <ul class="todo-list" style="list-style-type: none">
-            <li>Review monthly budget</li>
-            <li>Invest in stock market</li>
-            <li>Track expenses for the week</li>
-        </ul>
-        <a href="/todo" class="btn">Manage Your To-Do List</a>
-    </section>
-  </div>
+    <section class="testimonials">
+        <div class="containeres">
+          <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p>What our clients say about our services</p>
+          </div>
+      
+          <div class="testimonial-slider-wrapper">
+            <div class="testimonial-slider">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  Working with Pinnacle Finance has been transformative for my financial outlook. Their strategic approach helped me achieve my retirement goals five years ahead of schedule.
+                </div>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar"></div>
+                  <div>
+                    <div class="testimonial-name">David Robertson</div>
+                    <div class="testimonial-position">Business Owner</div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  Pinnacle Finance’s personalized advice and commitment have truly changed the way I manage my finances. I couldn't be more grateful!
+                </div>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar"></div>
+                  <div>
+                    <div class="testimonial-name">Sarah Johnson</div>
+                    <div class="testimonial-position">Marketing Executive</div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  Their professional team not only helped me save more but also taught me how to invest smartly for the long run.
+                </div>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar"></div>
+                  <div>
+                    <div class="testimonial-name">Michael Chen</div>
+                    <div class="testimonial-position">Software Engineer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+    
+      <section class="cta">
+        <div class="containers">
+          <h2>Ready to Secure Your Financial Future?</h2>
+          <p>Schedule a consultation with one of our financial advisors to create a personalized plan that aligns with your goals.</p>
+          <a href="/contact" class="loo">Book a Consultation</a>
+        </div>
+      </section>
 
   <!-- Footer -->
   <footer>
