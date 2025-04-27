@@ -11,10 +11,11 @@ const app = express();
 
 // MySQL Connection
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'yamabiko.proxy.rlwy.net',
     user: 'root',
-    password: 'Corona123',
-    database: 'user_auth'
+    password: 'eRFkVzbdqPfvmDtEnpvfikIdEYeZsnhb',
+    database: 'user_auth',
+    port: '39868'
 });
 
 db.connect(err => {
