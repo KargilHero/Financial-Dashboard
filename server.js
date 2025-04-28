@@ -501,7 +501,7 @@ app.post('/forgot-password', (req, res) => {
             [token, expireTime, email], (err) => {
                 if (err) return res.send('Error saving reset token');
 
-                const resetLink = `http://localhost:3000/reset-password/${token}`;
+                const resetLink = `https://financial-dashboard-jqf9.onrender.com/reset-password/${token}`;
                 const mailOptions = {
                     to: email,
                     from: 'ihaveagun12@gmail.com',
