@@ -21,7 +21,7 @@ function displayNews(articles) {
     newsGrid.innerHTML = articles.map(article => {
         return `
             <div class="news-item">
-                <img src="${article.image_url || 'https://via.placeholder.com/300x200'}" alt="${article.title}">
+               <img src="${article.image_url || 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=/300x200'}" alt="${article.title}">
                 <div class="news-content">
                     <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
                     <p>${article.description || ''}</p>
