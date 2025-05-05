@@ -8,7 +8,7 @@ async function fetchNews() {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        const articles = data.articles.slice(0, 4); // Fetch top 4 articles
+        const articles = data.results.slice(0, 4); // Get top 4 articles
         displayNews(articles);
     } catch (error) {
         console.error('Error fetching news:', error);
@@ -20,9 +20,9 @@ function displayNews(articles) {
     newsGrid.innerHTML = articles.map(article => {
         return `
             <div class="news-item">
-                <img src="${article.urlToImage || 'default-news.jpg'}" alt="${article.title}">
+                <img src="${article.image_url || 'https://via.placeholder.com/300x200'}" alt="${article.title}">
                 <div class="news-content">
-                    <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+                    <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
                     <p>${article.description || ''}</p>
                 </div>
             </div>
@@ -32,7 +32,6 @@ function displayNews(articles) {
 
 // Fetch and display the news on page load
 window.addEventListener('load', fetchNews);
-
 
 
 const stocksGrid = document.getElementById('stocksGrid');
