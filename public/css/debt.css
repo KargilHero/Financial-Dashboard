@@ -1,25 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    
+    box-sizing: border-box;
 }
-body{
+
+body {
     font-family: 'Roboto Condensed', sans-serif;
     background: linear-gradient(to right, #26323d, #2C3E50);
 }
+
 /* Debt Planner Styling */
 .debt-container {
     max-width: 700px;
     margin: 50px auto;
     padding: 20px;
     background: #f8f9fa00;
-    
 }
-label{
+
+label {
     color: whitesmoke;
 }
 
-.debt-container h2, h3 {
+.debt-container h2,
+.debt-container h3 {
     text-align: center;
     color: whitesmoke;
     margin-bottom: 15px;
@@ -31,7 +34,8 @@ label{
     gap: 10px;
 }
 
-.debt-container input, .debt-container select {
+.debt-container input,
+.debt-container select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -41,7 +45,6 @@ label{
 .debt-container button {
     background-color: transparent;
     color: #27AE60;
-   
     border: 2px solid #27AE60;
     border-radius: 4px;
     padding: 12px;
@@ -61,7 +64,8 @@ label{
     border-collapse: collapse;
 }
 
-.debt-container th, td {
+.debt-container th,
+.debt-container td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
@@ -72,14 +76,20 @@ label{
     color: white;
 }
 
-h3{
+h3 {
     margin-top: 13px;
 }
-.box{
+
+.box {
     margin-top: 15px;
     background-color: whitesmoke;
 }
 
+/* Table Scroll Wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 6px;
+}
 
 /* Modern Navigation Styling */
 :root {
@@ -92,65 +102,64 @@ h3{
     --transition-speed: 0.3s;
 }
 
+/* Navigation Styles */
 .modern-nav {
     background: var(--dark-color);
-    box-shadow: var(--box-shadow);
-    
+    position: fixed;
     top: 0;
-    
+    z-index: 900;
     width: 100%;
 }
 
 .container {
-    
-    margin: 0 auto;
     padding: 0 1rem;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
+    
     align-items: center;
     padding: 0.75rem 0;
+    flex-wrap: wrap;
 }
 
-.logo a{
-    text-decoration: none;
-}
 .logo {
     font-family: "Marcellus", serif;
     font-size: 1.7rem;
-    font-weight: bold;
+    font-weight: 500;
     color: white;
     text-decoration: none;
-      font-weight: 500;
-  }
-  
-  .green-accent {
-    color: #27AE60;
-  }
+}
 
 .logo:hover {
     transform: scale(1.05);
 }
 
-.nav-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 0.5rem;
+.green-accent {
+    color: #27AE60;
 }
 
+.nav-menu {
+    display: flex;
+    align-items: left;
+    list-style: none;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
 .nav-menu li {
-    position: relative;
+    list-style: none;
+}
+
+.logo a {
+    text-decoration: none;
 }
 
 .nav-menu li a {
     color: var(--text-color);
     text-decoration: none;
-    display: block;
     padding: 0.75rem 1rem;
     border-radius: 4px;
     font-weight: 500;
@@ -162,46 +171,20 @@ h3{
     color: white;
 }
 
-/* Dropdown styling */
-.dropdown-icon {
-    font-size: 0.75rem;
-    margin-left: 0.25rem;
-    transition: transform var(--transition-speed);
-}
-
-.dropdown:hover .dropdown-icon {
-    transform: rotate(180deg);
+/* Dropdown */
+.dropdown {
+    position: relative;
 }
 
 .dropdown-menu {
     display: none;
     position: absolute;
     background: var(--dark-color);
-    list-style: none;
     padding: 0.5rem 0;
-    
-    left: 0;
     min-width: 200px;
     border-radius: 4px;
     box-shadow: var(--box-shadow);
     z-index: 1001;
-}
-
-.dropdown-menu li {
-    width: 100%;
-}
-
-.dropdown-menu li a {
-    padding: 0.75rem 1.5rem;
-    color: var(--text-color);
-    text-decoration: none;
-    display: block;
-    transition: all var(--transition-speed);
-}
-
-.dropdown-menu li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -209,121 +192,135 @@ h3{
     animation: fadeIn 0.3s ease;
 }
 
-/* User-related styling */
-.user-greeting {
-    color: #cbd5e1;
-    padding: 0.75rem 1rem;
-    margin-left: 0.5rem;
+.dropdown-menu li a {
+    padding: 0.75rem 1.5rem;
+    display: block;
+    color: var(--text-color);
 }
 
-.auth-link {
-    background-color: var(--dark-color);
-    border-radius: 4px;
-    padding: 0.5rem 1.25rem !important;
-    font-weight: 600 !important;
+.dropdown-menu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
 }
 
-.auth-link:hover {
-    background-color: var(--text-color) !important;
-    color: var(--dark-color) !important;
-}
-
-/* Mobile menu toggle */
-.nav-toggle {
-    display: none;
-}
-
+/* Mobile Toggle */
+.nav-toggle,
 .nav-toggle-label {
     display: none;
-    cursor: pointer;
-}
-
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-    display: block;
-    background: white;
-    height: 2px;
-    width: 2rem;
-    position: relative;
-    transition: all var(--transition-speed);
-}
-
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-    content: '';
-    position: absolute;
-}
-
-.nav-toggle-label span::before {
-    bottom: 8px;
-}
-
-.nav-toggle-label span::after {
-    top: 8px;
 }
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Media queries for responsiveness */
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .debt-container {
+        padding: 15px;
+        margin: 20px 10px;
+    }
+
+    .debt-container form {
+        gap: 12px;
+    }
+
+    .debt-container input,
+    .debt-container select,
+    .debt-container button {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .debt-container h2,
+    .debt-container h3 {
+        font-size: 20px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .debt-container table {
+        width: 1000px;
+        min-width: 600px;
+    }
+
+    .debt-container th,
+    .debt-container td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+}
+
 @media (max-width: 992px) {
-    .nav-wrapper {
-        flex-wrap: wrap;
-    }
-    
-    .nav-toggle-label {
-        display: block;
-        order: 1;
-    }
-    
     .nav-menu {
         display: none;
-        width: 100%;
         flex-direction: column;
-        align-items: stretch;
-        padding: 1rem 0;
-        order: 3;
+        gap: 1rem;
+        width: 100%;
     }
-    
+
     .nav-toggle:checked ~ .nav-menu {
         display: flex;
     }
-    
-    .nav-menu li a {
-        padding: 1rem;
+
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
     }
-    
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: white;
+        height: 2px;
+        width: 2rem;
+        position: relative;
+        transition: all var(--transition-speed);
+    }
+
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        content: '';
+        position: absolute;
+    }
+
+    .nav-toggle-label span::before {
+        bottom: 8px;
+    }
+
+    .nav-toggle-label span::after {
+        top: 8px;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span {
+        background: transparent;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::before {
+        transform: rotate(45deg);
+        bottom: 0;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
     .dropdown-menu {
         position: static;
         background: rgba(0, 0, 0, 0.1);
         box-shadow: none;
         width: 100%;
-        padding-left: 1rem;
-    }
-    
-    .dropdown:hover .dropdown-menu {
-        animation: none;
-    }
-    
-    .dropdown-menu li a:hover {
-        transform: none;
-    }
-    
-    .nav-toggle:checked ~ .nav-toggle-label span {
-        background: transparent;
-    }
-    
-    .nav-toggle:checked ~ .nav-toggle-label span::before {
-        transform: rotate(45deg);
-        bottom: 0;
-    }
-    
-    .nav-toggle:checked ~ .nav-toggle-label span::after {
-        transform: rotate(-45deg);
-        top: 0;
     }
 }
