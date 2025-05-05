@@ -2,14 +2,13 @@ const newsGrid = document.getElementById('newsGrid');
 
 // Replace 'YOUR_API_KEY' with a valid NewsAPI key
 const apiKey = '27f4cace5aed40e59be8aba8c5535dd4';
-const apiUrl = `https://newsdata.io/api/1/news?apikey=pub_71059bf9e70bd4692ab7e14a18b6601e3fa78&q=business&country=in&category=business`;
-
+const apiUrl = `https://newsapi.org/v2/everything?q=finance&sortBy=publishedAt&apiKey=${apiKey}`;
 
 async function fetchNews() {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        const articles = data.results.slice(0, 4); // Get top 4 articles
+        const articles = data.articles.slice(0, 4); // Fetch top 4 articles
         displayNews(articles);
     } catch (error) {
         console.error('Error fetching news:', error);
@@ -21,10 +20,10 @@ function displayNews(articles) {
     newsGrid.innerHTML = articles.map(article => {
         return `
             <div class="news-item">
-             <img src="${article.image_url || 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=/300x200'}" alt="${article.title}">
-                    <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
+                <img src="${article.urlToImage || 'default-news.jpg'}" alt="${article.title}">
+                <div class="news-content">
+                    <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
                     <p>${article.description || ''}</p>
-                    <p><small>Source: <a href="${article.source_url}" target="_blank">${article.source_name}</a></small></p>
                 </div>
             </div>
         `;
