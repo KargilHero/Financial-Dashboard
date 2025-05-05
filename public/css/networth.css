@@ -260,22 +260,26 @@ button:hover {
         display: block;
         order: 1;
     }
+    .con{
+        margin-left: 20%;
+    }
     
     .nav-menu {
         display: none;
         width: 100%;
         flex-direction: column;
         align-items: stretch;
-        padding: 1rem 0;
+        gap: 0.2rem; /* Reduce spacing between items */
+        padding: 0.5rem 0;
         order: 3;
     }
-    
     .nav-toggle:checked ~ .nav-menu {
         display: flex;
     }
     
     .nav-menu li a {
-        padding: 1rem;
+        padding: 0.4rem 1rem; /* less padding to reduce height */
+        text-align: left;
     }
     
     .dropdown-menu {
@@ -320,158 +324,5 @@ color: #334155;
 line-height: 1.6;
 margin: 0;
 padding: 0;
-}
-
-/* Container Styling */
-.calculator-container {
-max-width: 800px;
-margin: 100px auto 50px;
-padding: 2rem;
-background-color: white;
-border-radius: 10px;
-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.calculator-header {
-text-align: center;
-margin-bottom: 2rem;
-}
-
-.calculator-header h2 {
-color: var(--dark-color);
-font-size: 2rem;
-margin-bottom: 0.5rem;
-}
-
-.calculator-header p {
-color: #64748b;
-font-size: 1.1rem;
-}
-
-/* Form Styling */
-.calculator-form {
-display: flex;
-flex-direction: column;
-gap: 1.5rem;
-}
-
-.form-group {
-display: flex;
-flex-direction: column;
-}
-
-.form-label {
-font-weight: 600;
-margin-bottom: 0.5rem;
-color: #334155;
-font-size: 1.1rem;
-}
-
-.form-input {
-padding: 1rem;
-border: 2px solid #e2e8f0;
-border-radius: 8px;
-font-size: 1.1rem;
-transition: all var(--transition-speed);
-}
-
-.form-input:focus {
-outline: none;
-border-color: var(--primary-color);
-box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-/* Button Styling */
-.button-group {
-display: flex;
-gap: 1rem;
-margin-top: 1rem;
-}
-
-.btn {
-padding: 1rem 2rem;
-border: none;
-border-radius: 8px;
-font-weight: 600;
-font-size: 1rem;
-cursor: pointer;
-transition: all var(--transition-speed);
-}
-
-.btn-primary {
-background-color:#2C3E50;
-color: white;
-flex: 2;
-}
-
-.btn-primary:hover {
-background-color: var(--primary-hover);
-}
-
-.btn-secondary {
-background-color: #e2e8f0;
-color: #475569;
-flex: 1;
-}
-
-.btn-secondary:hover {
-background-color: #cbd5e1;
-}
-
-/* Result Card Styling */
-.result-card {
-margin-top: 2rem;
-padding: 1.5rem;
-background-color: var(--secondary-color);
-border-radius: 8px;
-text-align: center;
-transition: all var(--transition-speed);
-}
-
-.result-card.positive {
-background-color: #dcfce7;
-border-left: 5px solid #22c55e;
-}
-
-.result-card.negative {
-background-color: #fee2e2;
-border-left: 5px solid #ef4444;
-}
-
-.result-label {
-font-size: 1.1rem;
-font-weight: 600;
-margin-bottom: 0.5rem;
-color: #2C3E50;
-}
-
-.result-value {
-font-size: 2.5rem;
-font-weight: 700;
-color: var(--dark-color);
-}
-
-.result-card.positive .result-value {
-color: #16a34a;
-}
-
-.result-card.negative .result-value {
-color: #dc2626;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-.calculator-container {
-    margin: 80px 1rem 2rem;
-    padding: 1.5rem;
-}
-
-.button-group {
-    flex-direction: column;
-}
-
-.btn {
-    width: 100%;
-}
 }
 
