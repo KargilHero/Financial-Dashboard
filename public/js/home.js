@@ -2,7 +2,7 @@ const newsGrid = document.getElementById('newsGrid');
 
 // Replace 'YOUR_API_KEY' with a valid NewsAPI key
 const apiKey = '27f4cace5aed40e59be8aba8c5535dd4';
-const apiUrl = `https://newsapi.org/v2/everything?q=finance&sortBy=publishedAt&apiKey=${apiKey}`;
+const apiUrl = `https://newsdata.io/api/1/news?apikey=pub_71059bf9e70bd4692ab7e14a18b6601e3fa78&q=business&country=in&category=business`;
 
 async function fetchNews() {
     try {
