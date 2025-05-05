@@ -4,6 +4,7 @@ const newsGrid = document.getElementById('newsGrid');
 const apiKey = '27f4cace5aed40e59be8aba8c5535dd4';
 const apiUrl = `https://newsdata.io/api/1/news?apikey=pub_71059bf9e70bd4692ab7e14a18b6601e3fa78&q=business&country=in&category=business`;
 
+
 async function fetchNews() {
     try {
         const response = await fetch(apiUrl);
@@ -24,6 +25,7 @@ function displayNews(articles) {
                 <div class="news-content">
                     <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
                     <p>${article.description || ''}</p>
+                    <p><small>Source: <a href="${article.source_url}" target="_blank">${article.source_name}</a></small></p>
                 </div>
             </div>
         `;
