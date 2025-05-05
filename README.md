@@ -108,4 +108,4 @@ npm start
 ## 🧑‍💻 Author
 
 **KargilHero**  
-[LinkedIn](https://www.linkedin.com/in/dev-sharma-29a71823b/) • [GitHub](https://github.com/KargilHero) • [Portfolio](#)
+[LinkedIn](https://www.linkedin.com/in/dev-sharma-29a71823b/) • [GitHub](https://github.com/KargilHero) • [Portfolio](https://gilded-raindrop-b5b1f9.netlify.app/)
