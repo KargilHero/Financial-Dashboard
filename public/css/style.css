@@ -16,8 +16,7 @@ a {
     color: #333;
 }
 
-/* Navigation Styles */
-/* Modern Navigation Styling */
+/* CSS Variables */
 :root {
     --primary-color: #2563eb;
     --primary-hover: #1d4ed8;
@@ -28,65 +27,62 @@ a {
     --transition-speed: 0.3s;
 }
 
+/* Navigation Styles */
 .modern-nav {
     background: var(--dark-color);
-    box-shadow: var(--box-shadow);
-    
-    top: 0;
-    
+    position: fixed;
+    z-index: 900;
     width: 100%;
+    
 }
 
 .container {
-    
-    margin: 0 auto;
     padding: 0 1rem;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
+    flex-wrap: wrap;
 }
 
-.logo a{
-    text-decoration: none;
-}
 .logo {
     font-family: "Marcellus", serif;
     font-size: 1.7rem;
-    font-weight: bold;
+    font-weight: 100;
     color: white;
     text-decoration: none;
-      font-weight: 500;
-  }
-  
-  .green-accent {
-    color: #27AE60;
-  }
+}
 
 .logo:hover {
     transform: scale(1.05);
 }
 
+.green-accent {
+    color: #27AE60;
+}
+
 .nav-menu {
     display: flex;
-    align-items: center;
+    align-items: left;
     list-style: none;
-    margin: 0;
-    padding: 0;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
+.logo a {
+    text-decoration: none;
+}
 .nav-menu li {
-    position: relative;
+    list-style: none;
 }
-
 .nav-menu li a {
     color: var(--text-color);
     text-decoration: none;
-    display: block;
     padding: 0.75rem 1rem;
     border-radius: 4px;
     font-weight: 500;
@@ -98,46 +94,20 @@ a {
     color: white;
 }
 
-/* Dropdown styling */
-.dropdown-icon {
-    font-size: 0.75rem;
-    margin-left: 0.25rem;
-    transition: transform var(--transition-speed);
-}
-
-.dropdown:hover .dropdown-icon {
-    transform: rotate(180deg);
+/* Dropdown */
+.dropdown {
+    position: relative;
 }
 
 .dropdown-menu {
     display: none;
     position: absolute;
     background: var(--dark-color);
-    list-style: none;
-    padding: 0.5rem 0;
-    
-    left: 0;
+    padding: 0.2rem 0;
     min-width: 200px;
     border-radius: 4px;
     box-shadow: var(--box-shadow);
     z-index: 1001;
-}
-
-.dropdown-menu li {
-    width: 100%;
-}
-
-.dropdown-menu li a {
-    padding: 0.75rem 1.5rem;
-    color: var(--text-color);
-    text-decoration: none;
-    display: block;
-    transition: all var(--transition-speed);
-}
-
-.dropdown-menu li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -145,130 +115,93 @@ a {
     animation: fadeIn 0.3s ease;
 }
 
-/* User-related styling */
-.user-greeting {
-    color: #cbd5e1;
-    padding: 0.75rem 1rem;
-    margin-left: 0.5rem;
+.dropdown-menu li a {
+    padding: 0.75rem 1.5rem;
+    display: block;
+    color: var(--text-color);
 }
 
-.auth-link {
-    background-color: var(--dark-color);
-    border-radius: 4px;
-    padding: 0.5rem 1.25rem !important;
-    font-weight: 600 !important;
+.dropdown-menu li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
 }
 
-.auth-link:hover {
-    background-color: var(--text-color) !important;
-    color: var(--dark-color) !important;
-}
-/* Mobile menu toggle */
-.nav-toggle {
-    display: none;
-}
-
+/* Mobile Toggle */
+.nav-toggle,
 .nav-toggle-label {
     display: none;
-    cursor: pointer;
 }
 
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-    display: block;
-    background: white;
-    height: 2px;
-    width: 2rem;
-    position: relative;
-    transition: all var(--transition-speed);
-}
-
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-    content: '';
-    position: absolute;
-}
-
-.nav-toggle-label span::before {
-    bottom: 8px;
-}
-
-.nav-toggle-label span::after {
-    top: 8px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Media queries for responsiveness */
 @media (max-width: 992px) {
-    .nav-wrapper {
-        flex-wrap: wrap;
-    }
-    
-    .nav-toggle-label {
-        display: block;
-        order: 1;
-    }
-    
     .nav-menu {
         display: none;
-        width: 100%;
         flex-direction: column;
-        align-items: stretch;
-        padding: 1rem 0;
-        order: 3;
+        gap: 1rem;
+        width: 100%;
     }
-    
+
     .nav-toggle:checked ~ .nav-menu {
         display: flex;
     }
-    
-    .nav-menu li a {
-        padding: 1rem;
+
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
     }
-    
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: white;
+        height: 2px;
+        width: 2rem;
+        position: relative;
+        transition: all var(--transition-speed);
+    }
+
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        content: '';
+        position: absolute;
+    }
+
+    .nav-toggle-label span::before {
+        bottom: 8px;
+    }
+
+    .nav-toggle-label span::after {
+        top: 8px;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span {
+        background: transparent;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::before {
+        transform: rotate(45deg);
+        bottom: 0;
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-label span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
     .dropdown-menu {
         position: static;
         background: rgba(0, 0, 0, 0.1);
         box-shadow: none;
         width: 100%;
-        padding-left: 1rem;
-    }
-    
-    .dropdown:hover .dropdown-menu {
-        animation: none;
-    }
-    
-    .dropdown-menu li a:hover {
-        transform: none;
-    }
-    
-    .nav-toggle:checked ~ .nav-toggle-label span {
-        background: transparent;
-    }
-    
-    .nav-toggle:checked ~ .nav-toggle-label span::before {
-        transform: rotate(45deg);
-        bottom: 0;
-    }
-    
-    .nav-toggle:checked ~ .nav-toggle-label span::after {
-        transform: rotate(-45deg);
-        top: 0;
     }
 }
 
+/* Main Stock Page */
 .stock-page {
     max-width: 1200px;
-    margin: 70px auto;
+    margin: 8rem auto;
     padding: 20px;
     background-color: #fff;
-    
     border-radius: 10px;
 }
 
@@ -284,7 +217,8 @@ form {
     justify-content: center;
     gap: 10px;
     margin-bottom: 30px;
-    position: relative; /* Relative positioning for suggestions */
+    position: relative;
+    flex-wrap: wrap;
 }
 
 form input {
@@ -310,7 +244,33 @@ form button:hover {
     background-color: #2980b9;
 }
 
-/* Stock Price Info */
+/* Suggestions */
+.suggestions {
+    border: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 10;
+    background: white;
+    display: none;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 43px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Stock Info */
 .stock-price-container {
     text-align: center;
     margin-bottom: 40px;
@@ -327,70 +287,78 @@ form button:hover {
     margin: 5px 0;
 }
 
-/* Stock Graph */
+/* Graph Section */
 .stock-graph-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: auto;
 }
 
 canvas {
-    max-width: 1000px;
-    width: 100%;
-    height: 400px;
+    max-width: 100%;
+    height: auto;
 }
 
-/* Suggestions */
-.suggestions {
-    border: 1px solid #ddd;
-    max-height: 150px;
-    overflow-y: auto;
-    position: absolute;
-    z-index: 10;
-    background: white;
-    display: none; /* Initially hidden */
-   max-width:1000px; /* Match input width */
-    margin-right: 75px;
-    margin-top: 43px; /* Space from the input */
-}
-
-.suggestions li {
-    padding: 10px;
-    cursor: pointer;
-    list-style-type: none;
-}
-
-.suggestions li:hover {
-    background-color: #f0f0f0;
-}
-
-/* Footer */
 footer {
     text-align: center;
-    padding: 2px;
+    padding: 5px;
     background-color: #2C3E50;
     color: #ecf0f1;
-    margin-top: 50px;
     font-size: 14px;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     form {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
     }
 
     form input {
         width: 100%;
+        max-width: 400px;
+    }
+
+    form button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .suggestions {
+        max-width: 100%;
+        width: 90%;
+        margin-top: -5px;
     }
 
     .stock-page {
-        margin: 20px;
+        margin: 10rem 1rem 2rem;
+        padding: 15px;
     }
+
+    .stock-price-container h3 {
+        font-size: 20px;
+    }
+
+    .stock-price-container p {
+        font-size: 16px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+
+/* Ensure full-height layout with footer at the bottom */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
