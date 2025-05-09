@@ -16,7 +16,7 @@ a {
     color: #333;
 }
 
-/* CSS Variables */
+/* Navigation Styles */
 :root {
     --primary-color: #2563eb;
     --primary-hover: #1d4ed8;
@@ -196,12 +196,12 @@ a {
     }
 }
 
-/* Main Stock Page */
 .stock-page {
     max-width: 1200px;
-    margin: 8rem auto;
+    margin: 70px auto;
     padding: 20px;
     background-color: #fff;
+    
     border-radius: 10px;
 }
 
@@ -217,8 +217,7 @@ form {
     justify-content: center;
     gap: 10px;
     margin-bottom: 30px;
-    position: relative;
-    flex-wrap: wrap;
+    position: relative; /* Relative positioning for suggestions */
 }
 
 form input {
@@ -244,33 +243,7 @@ form button:hover {
     background-color: #2980b9;
 }
 
-/* Suggestions */
-.suggestions {
-    border: 1px solid #ddd;
-    max-height: 150px;
-    overflow-y: auto;
-    position: absolute;
-    z-index: 10;
-    background: white;
-    display: none;
-    width: 100%;
-    max-width: 300px;
-    margin-top: 43px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.suggestions li {
-    padding: 10px;
-    cursor: pointer;
-    list-style-type: none;
-}
-
-.suggestions li:hover {
-    background-color: #f0f0f0;
-}
-
-/* Stock Info */
+/* Stock Price Info */
 .stock-price-container {
     text-align: center;
     margin-bottom: 40px;
@@ -287,78 +260,70 @@ form button:hover {
     margin: 5px 0;
 }
 
-/* Graph Section */
+/* Stock Graph */
 .stock-graph-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    overflow-x: auto;
 }
 
 canvas {
-    max-width: 100%;
-    height: auto;
+    max-width: 1000px;
+    width: 100%;
+    height: 400px;
 }
 
+/* Suggestions */
+.suggestions {
+    border: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 10;
+    background: white;
+    display: none; /* Initially hidden */
+   max-width:1000px; /* Match input width */
+    margin-right: 75px;
+    margin-top: 43px; /* Space from the input */
+}
+
+.suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Footer */
 footer {
     text-align: center;
-    padding: 5px;
+    padding: 2px;
     background-color: #2C3E50;
     color: #ecf0f1;
+    margin-top: 50px;
     font-size: 14px;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Responsive Design */
 @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     form {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
     }
 
     form input {
         width: 100%;
-        max-width: 400px;
-    }
-
-    form button {
-        width: 100%;
-        max-width: 200px;
-    }
-
-    .suggestions {
-        max-width: 100%;
-        width: 90%;
-        margin-top: -5px;
     }
 
     .stock-page {
-        margin: 10rem 1rem 2rem;
-        padding: 15px;
+        margin: 20px;
     }
-
-    .stock-price-container h3 {
-        font-size: 20px;
-    }
-
-    .stock-price-container p {
-        font-size: 16px;
-    }
-
-    footer {
-        font-size: 12px;
-    }
-}
-
-
-/* Ensure full-height layout with footer at the bottom */
-html, body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
 }
