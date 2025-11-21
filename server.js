@@ -9,19 +9,32 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 
-// MySQL Connection
-const db = mysql.createConnection({
+const mysql = require('mysql2');
+
+// MySQL Pool Connection (recommended for Render/Railway)
+const db = mysql.createPool({
     host: 'yamabiko.proxy.rlwy.net',
     user: 'root',
     password: 'eRFkVzbdqPfvmDtEnpvfikIdEYeZsnhb',
     database: 'user_auth',
-    port: '39868'
+    port: 39868,
+    waitForConnections: true,
+    connectionLimit: 10,  // adjustable
+    queueLimit: 0
 });
 
-db.connect(err => {
-    if (err) throw err;
-    console.log('MySQL Connected...');
+// Test connection once
+db.getConnection((err, connection) => {
+    if (err) {
+        console.error("❌ MySQL Connection Failed:", err.message);
+    } else {
+        console.log("✅ MySQL Connected (Pool Mode)");
+        connection.release();
+    }
 });
+
+module.exports = db;
+
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
