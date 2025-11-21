@@ -9,8 +9,6 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 
-const mysql = require('mysql2');
-
 // MySQL Pool Connection (recommended for Render/Railway)
 const db = mysql.createPool({
     host: 'yamabiko.proxy.rlwy.net',
