@@ -1,30 +1,30 @@
 
-# 💰 Financial Dashboard Web App
+#  Financial Dashboard Web App
 
 A comprehensive, full-stack **Financial Dashboard** to help users manage and analyze their finances effectively. Features include a personalized finance dashboard, financial tools, to-do list, stock tracking, contact form, and admin panel — all integrated with user authentication and real-time database support.
 
 ---
 
-## 🚀 Features
+## Features
 
-- ✅ **User Authentication** (Login, Register, Sessions)
-- 📈 **Financial Dashboard** with charts and key metrics
-- 🧮 **Finance Tools**:
+- **User Authentication** (Login, Register, Sessions)
+- **Financial Dashboard** with charts and key metrics
+- Finance Tools**:
   - Net Worth Calculator
   - Loan & EMI Calculator
   - Tax Estimator
   - Retirement Planner
   - Debt Payoff Planner
-- 📝 **To-Do List Manager** (User-specific)
-- 💱 **Currency Converter**
-- 📊 **Stock Market Info** (Graphs & News)
-- 📬 **Contact Form** (with Admin message viewing panel)
-- 📧 **Password Recovery** using **Nodemailer**
-- 📉 **Real-Time Data Visualization** with charts
+-  **To-Do List Manager** (User-specific)
+-  **Currency Converter**
+- **Stock Market Info** (Graphs & News)
+- **Contact Form** (with Admin message viewing panel)
+-  **Password Recovery** using **Nodemailer**
+- **Real-Time Data Visualization** with charts
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 ### Frontend:
 - **HTML5**, **CSS3**, **JavaScript (ES6+)**
@@ -46,7 +46,7 @@ A comprehensive, full-stack **Financial Dashboard** to help users manage and ana
 
 ---
 
-## 📁 Project Structure (Basic Overview)
+##  Project Structure (Basic Overview)
 
 ```
 financial-dashboard/
@@ -67,7 +67,7 @@ financial-dashboard/
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 git clone https://github.com/KargilHero/financial-dashboard.git
@@ -94,18 +94,19 @@ npm start
 
 ---
 
-## 🛠 Future Improvements
+## Future Improvements
 
-- 🔐 Add 2FA for login
-- 📲 Add mobile app using React Native
-- 📤 Export data as PDF/Excel
-- 📆 Add calendar-based bill reminders
-- 🧠 AI-powered financial insights
+-  Add 2FA for login
+-  Add mobile app using React Native
+-  Export data as PDF/Excel
+- Add calendar-based bill reminders
+-  AI-powered financial insights
 
 ---
 
 
-## 🧑‍💻 Author
+##  Author
 
 **KargilHero**  
 [LinkedIn](https://www.linkedin.com/in/dev-sharma-29a71823b/) • [GitHub](https://github.com/KargilHero) • [Portfolio](https://gilded-raindrop-b5b1f9.netlify.app/)
+
