@@ -32,7 +32,7 @@ A comprehensive, full-stack **Financial Dashboard** to help users manage and ana
 - **Chart.js / ApexCharts** *(for dynamic graphs)*
 - **Custom JavaScript Features**: 
   - Smooth scroll
-  - Animated counters
+  - Animated counter
   - Modals & Preloaders
   - Sound toggle
   - Parallax effects
@@ -109,4 +109,5 @@ npm start
 
 **KargilHero**  
 [LinkedIn](https://www.linkedin.com/in/dev-sharma-29a71823b/) • [GitHub](https://github.com/KargilHero) • [Portfolio](https://gilded-raindrop-b5b1f9.netlify.app/)
+
 
