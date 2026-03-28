@@ -24,7 +24,7 @@ A comprehensive, full-stack **Financial Dashboard** to help users manage and ana
 
 ---
 
-##  Tech Stack
+##  Tech Stac
 
 ### Frontend:
 - **HTML5**, **CSS3**, **JavaScript (ES6+)**
